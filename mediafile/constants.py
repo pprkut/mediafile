@@ -15,6 +15,8 @@ TYPES = {
     "aiff": "AIFF",
     "dsf": "DSD Stream File",
     "wav": "WAVE",
+    "ac3": "AC-3",
+    "eac3": "E-AC-3",
 }
 
 

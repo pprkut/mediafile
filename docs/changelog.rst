@@ -4,6 +4,9 @@ Changelog
 Upcoming
 --------
 
+- Added support for AC-3 and E-AC-3 (``.ac3``/``.eac3``) files. Mutagen does not
+  support tags for these formats, so MediaFile reads and writes APEv2 tags
+  appended to the stream, as done by foobar2000 and MusicBrainz Picard.
 - Fixed parsing of compact ``YYYYMMDD`` date strings (no separators) being
   misread as a year value.
 

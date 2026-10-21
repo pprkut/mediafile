@@ -37,6 +37,7 @@ class StorageStyle:
         "WavPack",
         "Musepack",
         "MonkeysAudio",
+        "AC3APEv2",
     ]
     """List of mutagen classes the StorageStyle can handle.
     """

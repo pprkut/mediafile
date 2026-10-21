@@ -7,7 +7,14 @@ from .base import ListStorageStyle
 class APEv2ImageStorageStyle(ListStorageStyle):
     """Store images in APEv2 tags. Values are `Image` objects."""
 
-    formats = ["APEv2File", "WavPack", "Musepack", "MonkeysAudio", "OptimFROG"]
+    formats = [
+        "APEv2File",
+        "WavPack",
+        "Musepack",
+        "MonkeysAudio",
+        "OptimFROG",
+        "AC3APEv2",
+    ]
 
     TAG_NAMES = {
         ImageType.other: "Cover Art (other)",

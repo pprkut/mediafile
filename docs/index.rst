@@ -7,7 +7,7 @@ manipulation, with a high-level, format-independent interface for a common set
 of tags.
 
 It currently supports MP3 files (ID3 tags), AAC files (as tagged by iTunes) as
-well as FLAC, Ogg, Monkey's Audio, WavPack, and Musepack.
+well as FLAC, Ogg, Monkey's Audio, WavPack, Musepack, and AC-3 (APEv2 tags).
 
 If a tag does not exist, MediaFile will return ``None`` instead of throwing an
 exception.

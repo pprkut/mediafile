@@ -983,6 +983,32 @@ class WavpackTest(ReadWriteTestBase, unittest.TestCase):
     }
 
 
+class AC3Test(ReadWriteTestBase, ExtendedImageStructureTestMixin, unittest.TestCase):
+    extension = "ac3"
+    audio_properties = {
+        "length": 1.0,
+        "bitrate": 96000,
+        "bitrate_mode": "",
+        "encoder_info": "",
+        "encoder_settings": "",
+        "format": "AC-3",
+        "samplerate": 44100,
+        "bitdepth": 0,
+        "channels": 2,
+    }
+
+    def test_length_excludes_tag(self):
+        empty = self._mediafile_fixture("empty")
+        image = self._mediafile_fixture("image")
+        self.assertEqual(image.length, empty.length)
+
+    def test_read_eac3(self):
+        mediafile = MediaFile(os.path.join(_common.RSRC, b"full.eac3"))
+        self.assertEqual(mediafile.format, "E-AC-3")
+        self.assertEqual(mediafile.channels, 2)
+        self.assertEqual(mediafile.title, "full")
+
+
 class OpusTest(ReadWriteTestBase, unittest.TestCase):
     extension = "opus"
     audio_properties = {

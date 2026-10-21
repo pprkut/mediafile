@@ -79,6 +79,7 @@ from .storage import (
     VorbisImageStorageStyle,
 )
 from .utils import (
+    AC3APEv2,
     Image,
     image_extension,
     image_mime_type,
@@ -203,6 +204,14 @@ class MediaFile:
             if raise_on_unsupported_wav and audio_fmt in _unsupported_wav_formats:
                 raise FileTypeError(self.filename, _unsupported_wav_formats[audio_fmt])
             self.type = "wav"
+        elif type(self.mgfile).__name__ == "AC3":
+            # Mutagen has no tag support for AC-3, so reopen the file
+            # with APEv2 tags.
+            self.mgfile = mutagen_call("open", self.filename, AC3APEv2, filething)
+            if self.mgfile.info.codec == "ec-3":
+                self.type = "eac3"
+            else:
+                self.type = "ac3"
         else:
             raise FileTypeError(self.filename, type(self.mgfile).__name__)
 
